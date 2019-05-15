@@ -1,0 +1,25 @@
+extends layout.pug
+
+block hero
+  setion.hero.is-dark.is-bold
+    .hero-body
+      .container
+        h1.title Tienda de Productos
+        h2.subtitle Encuentra los mejores productos al mejor precio.
+block content
+  .container(style='flex: 1; padding: 50px 0;')
+    .columns.is-multiline
+      each producto in productos
+        .column.is-one-quarter
+          .card
+            .card-image
+              figure.image(style='height: 190px')
+                img(src=producto.producto_imagen style='height:100%; object-fit: cover')
+          .card-content
+            h1.title= producto.producto_nombre
+            .button.is-fullwidth.is-primary
+              span.icon
+                i.fas.fa-shopping-cart
+              span Add 
+                strong=`${producto.producto_precio} USD`
+
